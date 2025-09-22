@@ -1,4 +1,4 @@
-package org.example.Thread.entities;
+package org.example.FinTech.entities;
 
 public class User {
     private int id;

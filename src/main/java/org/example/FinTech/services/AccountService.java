@@ -1,14 +1,19 @@
-package org.example.Thread.services;
+package org.example.FinTech.services;
 
-import org.example.Thread.entities.Account;
-import org.example.Thread.repository.AccountRepository;
+import org.example.FinTech.entities.Account;
+import org.example.FinTech.repository.AccountRepository;
+
 import java.util.List;
 
 public class AccountService {
-    private AccountRepository accountRepo = new AccountRepository();
+    private final AccountRepository accountRepo;
 
-    public void createAccount(int id, int userId, String type, double balance) {
-        Account acc = new Account(id, userId, type, balance);
+    public AccountService() {
+        this.accountRepo = new AccountRepository();
+    }
+
+    public void createAccount(int userId, String type, double balance) {
+        Account acc = new Account(0, userId, type, balance); // id = 0, DB will assign
         accountRepo.addAccount(acc);
         System.out.println("Account created: " + acc);
     }
@@ -21,11 +26,9 @@ public class AccountService {
         return accountRepo.getAllAccounts();
     }
 
-
     public boolean updateAccount(Account acc) {
         return accountRepo.updateAccount(acc);
     }
-
 
     public boolean deleteAccount(int id) {
         return accountRepo.deleteAccount(id);

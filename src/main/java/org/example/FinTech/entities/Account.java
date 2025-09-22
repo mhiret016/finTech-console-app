@@ -1,9 +1,9 @@
-package org.example.Thread.entities;
+package org.example.FinTech.entities;
 
 public class Account {
         private int id;
         private int userId;
-        private String accountType; // e.g., Savings, Checking
+        private String accountType;
         private double balance;
 
         public Account(int id, int userId, String accountType, double balance) {
